@@ -1,2 +1,2 @@
-# windowselinux 09-2021
+# windowselinux 
 Instalação Notebook Itautec 
