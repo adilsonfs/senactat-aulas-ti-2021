@@ -27,12 +27,15 @@ Rede:
 =========================================================================
 Mint                               Win
 IP ifconfig                        ipconfig
-GW route -n                        ipconfig/all
+GW route -n                        ipconfig/all (route print)
 DNS systemd-resolve --status       ipconfig/all
 =========================================================================
 Teste de Conexão de Rede: ping google.com (Sair Ctrl + C)
-Teste de Resolucção de Rede: nslookup google.com
+Teste de Resolucção de Rede: nslookup google.com ( Win -t)
 =========================================================================
+
+
+
 
 
 
