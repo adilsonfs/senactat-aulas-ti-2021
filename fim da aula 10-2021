@@ -21,3 +21,23 @@ Sétima etapa..: Instalar o pacote via Apt:
                 sudo apt update
                 sudo apt install git vim
 -------------------------------------------------------------------------     
+Rede:
+
+(ERRO) APIPA: 169.254.XXX.XX 
+=========================================================================
+Mint                               Win
+IP ifconfig                        ipconfig
+GW route -n                        ipconfig/all
+DNS systemd-resolve --status       ipconfig/all
+=========================================================================
+Teste de Conexão de Rede: ping google.com (Sair Ctrl + C)
+Teste de Resolucção de Rede: nslookup google.com
+=========================================================================
+
+
+
+
+
+
+
+
