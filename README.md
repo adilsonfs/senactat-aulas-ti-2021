@@ -1,2 +1,0 @@
-# windowselinux 
-Instalação Notebook Itautec 
