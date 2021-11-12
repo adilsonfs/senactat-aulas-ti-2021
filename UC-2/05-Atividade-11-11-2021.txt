@@ -1,0 +1,17 @@
+Atividade de hoje: 11/11/2021
+
+Primeira etapa: Iniciar o Windows 10
+Segunda etapa: Verificar as conexões de Rede
+        (Teste básico com os comandos aprendidos)
+        
+Terceira etapa: Trabalhar com Switches em Grupo (7 Gupos)
+Quarta etapa..: Configurações do Windows 10 (Rede)
+           Hostname:
+           Workdroup:
+           Endereço IPv4 Estático:
+           Endereço IPv4 Dinânico:
+           Gateway:
+           Servidor DNS:
+           Testes de Conexão:
+           
+Quinta etapa: Procedimentos no GNU/Linux Mint

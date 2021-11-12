@@ -1,0 +1,11 @@
+Primeira etapa: Iniciar o Linux Mint;
+Segunda etapa.: Finalizar as atividades da última aula;
+Terceiro etapa: Trabalhar com: Visual Studio Code (conf)
+							   Github (site)
+							   Git (configuração)
+Quarta etapa..: Trabalhar com documentação: Texto (TXT)
+											Markdown (MD)
+											Html
+Quinta etapa..: Se logar no Firefox no Linux Mint com sua
+				do Github para fazer a integração com o
+				Visual Studio Code, Git e Github
