@@ -1,0 +1,9 @@
+Atividade de hoje: 17/11/2021
+
+Primeira etapa: Voltar o Snapshot da aula anterior
+Segunda etapa.: Criar um novo Hard Disk de 70GB
+Terceira etapa: Ativar o HD com suporte ao MBR
+Quarta etapa..: Diminuir a partição do win10 (metade)
+Quinta etapa..: Criar uma partição: Arquivos
+                (será explicado na aula)
+Sexta etapa...: Particionar e formatar o HD como: BKP
