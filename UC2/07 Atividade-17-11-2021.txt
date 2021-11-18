@@ -33,3 +33,21 @@ Y
 Y
 ******************************************************************************************
 Inicializar o Windows e remover a partição Arquivos
+******************************************************************************************
+Inicializar o Windows e remover a partição Arquivos
+Ativar o disco de 70GB. Os dados salvos na partição Arquivos aparecerão
+Excluir a partição estendida do disco 0
+Clique com o Botão direito do mouse na partição C:\ e selecione a opção estender volume e
+utilize todo o espaço disponível
+******************************************************************************************
+Instalar o aplicativo Gparted
+sudo apt update 
+sudo apt upgrade
+sudo apt dist-upgrade
+sudo apt full-upgrade
+sudo apt autoremove
+sudo apt autoclean
+sudo apt clean
+sudo apt install gparted -y
+******************************************************************************************
+Tirar Snapshot
