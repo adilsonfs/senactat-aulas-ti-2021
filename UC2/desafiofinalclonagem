@@ -22,3 +22,12 @@ Iniciar AOEMI
 3- Selecionar o disco que precisar ser clonado
 4- Selecionar o disco de destino
 5- Start Clone
+============================================================================================================
+Iniciar MacriumReflect-WinPE.iso
+
+1- Abrir Macrium
+2- Clone Backups
+3- Clone  this disk
+4- Drag partitions to the destination disk or click copy partitions
+5- Select a disk to clone to... - next
+6- Finish
