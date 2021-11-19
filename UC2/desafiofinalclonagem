@@ -15,14 +15,15 @@ Clone Disk
                Reinicar o Win 10
                Clonagem concluida
 ===========================================================================================================
-Iniciar AOEMI
+iniciar o AOEMI
+abrir o aoemi backupper
+Clone
+   Disk CLone
+      Selecionar o disco que precisa ser clonar 
+       Selecionar o disco de destinon 
+         start clone
+clonagem realizada com sucesso   
 
-1- Abrir AOEMI
-2- Clone
-3- Selecionar o disco que precisar ser clonado
-4- Selecionar o disco de destino
-5- Start Clone
-6- 
 ============================================================================================================
 Iniciar MacriumReflect-WinPE.iso
 
