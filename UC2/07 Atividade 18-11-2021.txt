@@ -1,0 +1,17 @@
+07 Atividade-18-11-2021.txt
+
+Primeira etapa: Iniciar o Windows 10
+Segunda etapa.: Na partição Arquivos criar a pasta: IMG
+Terceira etapa: Iniciar o Clonezilla
+Quarta etapa..: Clonar todo o sistema para Imagem (será explicado na aula)
+Quinta etapa..: Verificar se a imagem foi criada na Partição Windows
+Sexta etapa...: Adicionar um novo Hard Disk de 80GB
+Sétima etapa..: Remover o Hard disk de 50GB do Windows
+Oitava etapa..: DESAFIO: restaurar a Imagem no novo Hard Disk
+Nona etapa....: Adicionar um Hard Disk de 70GB no Linux Mint
+Décima etapa..: Utilizar o software Gparted (será explicado na aula)    
+DécPri etapa..: Montar a partição Arquivos e criar a Pasta IMG      
+                (será explicado na aula)
+DécSeg etapa..: DESAFIO: Só fazer a clonagem da imagem do Mint
+                SE QUISER SER O CARA, BAMBAMBAM DO TI, RESTAURA 
+                A IMAGEM DO MINT EM UM NOVO HARD DISK  
