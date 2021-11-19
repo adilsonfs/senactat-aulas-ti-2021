@@ -1,6 +1,7 @@
 Parte um criar um Hd de 90 GB 
 habilitar o HD 
 tirar um snapshot
+==========================================================================================================
 iniciar acronis 
 1- opção 
 tols & Utilities
@@ -10,3 +11,14 @@ Clone Disk
            Selecionar o disco de destino
               Selecionar a primeira opção 
                Processar
+               Alterar a ordem de disco
+               Reinicar o Win 10
+               Clonagem concluida
+===========================================================================================================
+Iniciar AOEMI
+
+1- Abrir AOEMI
+2- Clone
+3- Selecionar o disco que precisar ser clonado
+4- Selecionar o disco de destino
+5- Start Clone
