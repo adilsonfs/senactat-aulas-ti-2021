@@ -21,14 +21,14 @@ Decimal - IP padrão = 192.168.0.0
 Pode mudar conforme os cálculos
 255 = Broadcast (gritar na rede)
 0 = Identificação de rede
-
+================================================================================================
 Máscara de Rede - Reparar o que é rede e computadores dessa rede
 Cálculo binário conta o 0, por isso a máscara de rede começa em 255
 Host = computadores
 
 0 - Id Rede
 1 ---> 254 
-
+================================================================================================
 Endereços IPV4 Público e Privados
 "Classes" já não existem mais
 
@@ -37,7 +37,7 @@ B = 128.0.0.0 -> 191.255.255.255 (nunca usar endereço com início 169 APIPA)
 C = 192.0.0.0 -> 223.255.255.255
 D = 244.0.0.0 -> 239.255.255.255 (nunca usar endereço com início 224)
 E = 240.0.0.0 -> 247.255.255.255 
-
+================================================================================================
 Classes Privadas   CIDR 
 
 A = 10.0.0.0 -> 10.255.255.255 - Redes Grandes
@@ -48,7 +48,7 @@ Másc. = 255.255.0.0 - /16 (16 bits ativos)
 
 C = 192.168.0.0 -> 192.168.255.255 - Redes Pequenas
 Másc. = 255.255.255.0 - /24 (24bits ativos)
-
+================================================================================================
 Gateway = seu objetivo é criar a comunicação entre as redes (TRADUTOR)
 
 DNS - SERVIDORES DE NOME DE DOMÍNIO
@@ -63,3 +63,4 @@ Terms
 Privacy
 Security
 Status
+==================================================================================================
