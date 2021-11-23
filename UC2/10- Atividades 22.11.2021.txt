@@ -1,1 +1,65 @@
+Livros de Redes
 
+Certificação CCNA: guia preparatório 
+CCNA 6.0: guia completo de estudo
+
+============================================================================================
+
+Mac Adress - Endereço fixo, utilizado principalmente em switch, acessar origem e destino (hexadecimal)
+SOHO - rorteador 
+
+Endereço IPV4 - PROTOCOLO DE INTERNET 4 (decimal)
+
+Formado em X.X.X.X (cada um com 8 bit = 1 Byte, ao todo são 32 bits = 4 Bytes)
+IPV4 - 2³² = + 4.3 bilhões
+
+Decimal - IP padrão = 192.168.0.0
+
+2^8 = 256
+2^8-2 = 254
+
+Pode mudar conforme os cálculos
+255 = Broadcast (gritar na rede)
+0 = Identificação de rede
+
+Máscara de Rede - Reparar o que é rede e computadores dessa rede
+Cálculo binário conta o 0, por isso a máscara de rede começa em 255
+Host = computadores
+
+0 - Id Rede
+1 ---> 254 
+
+Endereços IPV4 Público e Privados
+"Classes" já não existem mais
+
+A = 0.0.0.0 -> 127.255.255.255 (nunca usar endereço com início 127)
+B = 128.0.0.0 -> 191.255.255.255 (nunca usar endereço com início 169 APIPA)
+C = 192.0.0.0 -> 223.255.255.255
+D = 244.0.0.0 -> 239.255.255.255 (nunca usar endereço com início 224)
+E = 240.0.0.0 -> 247.255.255.255 
+
+Classes Privadas   CIDR 
+
+A = 10.0.0.0 -> 10.255.255.255 - Redes Grandes
+Máscara de Rede Padrão = 255.0.0.0 - /8 (apenas 8bits ativos) 
+
+B = 172.16.0.0 -> 172.31.255.255 - Redes Médias
+Másc. = 255.255.0.0 - /16 (16 bits ativos) 
+
+C = 192.168.0.0 -> 192.168.255.255 - Redes Pequenas
+Másc. = 255.255.255.0 - /24 (24bits ativos)
+
+Gateway = seu objetivo é criar a comunicação entre as redes (TRADUTOR)
+
+DNS - SERVIDORES DE NOME DE DOMÍNIO
+
+Reponsável por traduzir nome para IP e vice e versa
+
+O IP e as Masks tem que ser iguais
+
+Pesquisar --- VLSN
+© 2021 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
