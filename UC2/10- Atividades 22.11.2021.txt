@@ -1,4 +1,4 @@
-Livros de Redes
+Livros de Redes;
 
 Certificação CCNA: guia preparatório 
 CCNA 6.0: guia completo de estudo
