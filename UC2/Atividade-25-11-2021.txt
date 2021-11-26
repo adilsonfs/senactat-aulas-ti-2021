@@ -1,0 +1,25 @@
+Atividade de hoje: 25/11/2021
+
+Primeira etapa: Pegar o seu Kit do Grupo de Notebook, Fonte, Cabo de Rede, ligar o seu Notebook no Switch e iniciar o Windows 10, fazer todos os testes de conexão de rede (ping, \\, etc...)
+OBS: NÃO CONECTAR O SWITCH OU O NOTEBOOK NA REDE DO SENAC PARA NÃO ACONTECER A FALHA DE ENDEREÇAMENTO IPv4.
+
+Segunda etapa.: Ligar o Linux Mint do VirtualBOX conectado em Modo Bridge na sua rede do Switch
+
+Terceira etapa: Pegar um Roteador SOHO (Small Office - Escritório Pequeno /Home Office - Escritório em Casa) / ISR (Integrated Services Router - Roteador de Serviços Integrados)
+
+Quarta etapa..: Habilitar e configurar o seu Roteador SOHO para fornecer DHCP na rede local com as seguintes opções (se estiver disponível, alguns roteadores não tem suporte a configurações de DNS alternativos).
+				Faixa Inicial: 192.168.X.100
+				Faixa Final..: 192.168.X.150
+				Gateway Padr.: 192.168.X.254
+				DNS Preferencial: 8.8.8.8
+				DNS Alternativo.: 8.8.4.4
+				Configurar o Windows para obter IPv4 Dinâmico
+
+Quinta etapa..: Habilitar e configurar o seu Roteador SOHO para fornecer Rede Sim-Fio (Wireless / Wi-Fi) com as opções
+				SSID.......: grupo-0X
+				Senha WPA2.: 123@senac
+				Conectar na sua rede sem-fio com o seu Celular ou se você quiser testar o Adaptador Sem-Fio TP-Link ou seu notebook estiver funcionando a rede pode usar.
+				
+Sexta etapa...: Configuração do Cobian Backup para fazer o Backup Completo de qualquer Pasta Compartilhada para uma Pasta no C:\BACKUP (criar aquivos e diretórios nessa pasta), criar uma rotina de backup simples, testar o backup e criar uma rotina para amanhã no horário das 20hs.
+
+Sétima etapa..: Criar uma conta no PCloud, baixar o aplicativo e instalar no windows, na pasta do PCloud no Windows criar vários arquivos e diretórios, consultar se no site foi atualizado o sincronismo, baixar a versão para o Linux Mint, instalar e ver se os arquivos foram sincronizados.

@@ -1,0 +1,36 @@
+Atividade de hoje: 24/11/2021
+
+Primeira etapa: Pegar o seu Kit do Grupo de Notebook, Fonte, Cabo de Rede, ligar o seu Notebook no Switch e iniciar o Windows 10, fazer todos os testes de conexão de rede (ping, \\, etc...)
+OBS: NÃO CONECTAR O SWITCH OU O NOTEBOOK NA REDE DO SENAC PARA NÃO ACONTECER A FALHA DE ENDEREÇAMENTO IPv4.
+
+Segunda etapa.: Ligar o Linux Mint do VirtualBOX conectado em Modo Bridge na Rede do SENAC.
+Instalar o aplicativo: SAMBA (Simple Message Block \\)
+OBS: NÃO CONECTAR AINDA NO SEU SWITCH, VAMOS INSTALAR ALGUNS SOFTWARE/PACOTES ANTES NO MINT, DEPOIS VOCÊ CONECTA NA SUA REDE/SWITCH.
+
+Terceira etapa: Pegar um Roteador SOHO (Small Office - Escritório Pequeno /Home Office - Escritório em Casa) / ISR (Integrated Services Router - Roteador de Serviços Integrados) resetar ele e configurar o Endereçamento IPv4 com a faixa: 192.168.X.254/24 (X = número da sua rede/grupo) - AGUARDAR PARA OS PRÓXIMOS PROCEDIMENTOS.
+==========================================================================
+
+Quarta etapa..: Desabilitar o seu Roteador o DHCP Server e as configuração da Rede Sem-Fio
+				Conectar o Roteador SOHO/ISR no seu Switch
+				Configurar os Gateway e DNS no Windows 10
+				Gateway: 192.168.x.254 (endereço do Roteador)
+				DNS Preferencial TESTAR: 192.168.x.254 (endereço do Roteador)
+				CONECTAR UM CABO DE REDE NA PORTA DE INTERNET DO ROTEADOR NA REDE DO SENAC
+				TESTAR O ACESSO A INTERNET COM O COMANDO PING E NO NAVEGADOR
+					DNS Preferencial e Alternativo testar os endereços:
+					DNS Google..............: Pref: 8.8.8.8 		- Alt: 8.8.4.4
+					OpenDNS Cisco...........: Pref: 208.67.222.222	- Alt: 208.67.220.220
+					OpenDNS FamilyShield....: Pref: 208.67.222.123	- Alt: 208.67.220.123
+					CloudFlare..............: Pref: 1.1.1.1 		- Alt: 1.0.0.1
+					CloudFlare FamilyShield.: Pref: 1.1.1.3 		- Alt: 1.0.0.3
+					Vivo: 200.204.0.10 200.204.0.138
+				Testar o ping com a Internet no endereço do google: ping google.com
+				OBSERVAR O CAMPOS TEMPOS E TTL (TIME TO LIVE)
+				
+Quinta etapa..: Conectar o Linux Mint na sua rede/switch, configurar o Gateway e DNS, testar as conexão com seus notebook Windows e com o acesso a Internet
+
+Sexta etapa...: Na partição do Windows 10 Diminuir o seu tamanho e deixar uma espaço de 10Gb, criar uma Partição chamada Arquivos, dentro da partição criar um diretório chamado: SeuNome. (AMANHA VOU VERIFICAR UMA NOVA SOLUÇÃO)
+
+Sétima etapa..: Baixar e instalar o Aplicativo Cobian Backup 11 Gravity no Windows 10 do Site Oficial (SERÁ UTILIZADO NA PRÓXIMA AULA).
+
+Oitava etapa..: Baixar a instalar Aplicativos de Cloud (OneDriver, Google Driver, Mega.nz, Dropbox, PCloud, iCloud, etc...) VOU TESTAR QUAL APLICATIVO A REDE DO SENAC ESTÁ PERMITINDO SINCRONIZAR, POIS O MEGA.NZ E BLOQUEADO NA REDE DO SENAC.
