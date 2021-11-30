@@ -40,7 +40,7 @@ Help file for this repository
 ******************************************************************************************
 Terminal
 git status
-git pull https://github.com/fagnerfgb/devops.git
+git pull https://github.com/adilsonfs/devops.git
 
 criar uma pasta chamada teste em Documentos
 mkdir teste
@@ -50,7 +50,7 @@ cp /home/senac/Documentos/devops/README.md /home/senac/Documentos/teste/
 ******************************************************************************************
 Enviar pasta teste para dentro do repositório devops
 ******************************************************************************************
-git pull https://github.com/fagnerfgb/devops.git
+git pull https://github.com/adilsonfs/devops.git
 ******************************************************************************************
 No Visual Studio
 Pressione ctrl + k
@@ -62,7 +62,7 @@ Sim, confio
 No arquivo HELP
 Inserir o texto abaixo:
 #01. How to clone this project: In the terminal type the command 
-git clone https://github.com/fagnerfgb/devops.git
+git clone https://github.com/adilsonfs/devops.git
 ******************************************************************************************
 ctrl + s para salvar
 ctrl + j vai para o terminal
@@ -75,7 +75,7 @@ git config --global user.email fagner.fgb@gmail.com
 git config --list
 git status
 git commit -m "Atualizacao"
-git push https://github.com/fagnerfgb/devops.git
+git push https://github.com/adilsonfs/devops.git
 ******************************************************************************************
 Adicionar outras pastas no Visual Studio
 Criar a pasta no seu gerenciador de arquivos
