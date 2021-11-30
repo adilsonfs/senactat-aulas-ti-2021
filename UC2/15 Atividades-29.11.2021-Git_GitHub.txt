@@ -29,10 +29,8 @@ a - arquivos e diretório ocultos
 ******************************************************************************************
 GitHub
 Dentro do repositório criar o arquivo HELP
-#Autor: Fagner Geraldes Braga
-#Site: www.fagnerfgb.com.br
-#Facebook: facebook.com/fagnerfgb
-#Linkedin: https://www.linkedin.com/in/fagnerfgb/
+#Autor: Adilson Santos
+#Linkedin: https://www.linkedin.com/in/adilson-santos-263070226/
 #Data de criação: 29/11/2021
 #Data de atualização: 29/11/2021
 #Versão: 0.01
