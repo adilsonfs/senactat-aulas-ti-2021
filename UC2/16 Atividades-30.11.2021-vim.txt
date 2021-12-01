@@ -1,4 +1,5 @@
 #Autor: Fagner Geraldes Braga
+#Atualizado: Adilson Santos
 #Data de criação: 30/11/2021
 #Data de atualização: 30/11/2021
 #Versão: 0.01
@@ -21,8 +22,8 @@ dd - recorta a linha onde está o cursor
 u - desfaz alteração
 ******************************************************************************************
 echo
-echo Fagner Geraldes Braga
-echo Fagner Geraldes Braga > sesc.txt
+echo Adilson Santos
+echo Adilson Santos > sesc.txt
 cat sesc.txt
 ******************************************************************************************
 aurelio.net
