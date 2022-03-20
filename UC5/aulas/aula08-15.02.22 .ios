@@ -1,0 +1,67 @@
+!Autor: Fagner Geraldes Braga  
+!Data de criação: 15/02/2022  
+!Data de atualização: 15/02/2022  
+!Versão: 0.01  
+
+!Configurando a interface do Roteador
+configure terminal 
+	interface gigabitEthernet 0/0
+		description Interface de Gateway da Rede LAN
+		ip address 192.168.1.254 255.255.255.0
+		no shutdown
+		end
+write
+
+show running-config
+show ip interface brief
+show interfaces gigabitEthernet 0/0
+show ip route
+
+ping 192.168.1.254
+ping 192.168.1.250
+ping 192.168.1.251
+ping 192.168.1.1
+
+
+!Acessando o Roteador Remotamente
+ssh -l admin 192.168.1.254
+
+show version
+
+!Configuration register is 0x2102 (Para quebrar usuário e senha)
+
+!Imagem e arquivos de configuração
+show flash:
+dir nvram:
+
+!Copia dos arquivos de configuração
+copy running-config startup-config
+copy startup-config flash:
+copy startup-config tftp:
+192.168.1.1
+
+!Configurando server-02
+!Config
+!display-name:server-02
+!Services
+!DHCP
+!Service:On
+!Pool Name: serverPool
+!Default Gateway: 192.168.3.254
+!DNS Server: 192.168.3.1
+!Start IP Address: 192.168.1.100
+!Subnet Mask: 255.255.255.0
+!Maximum Number of Users: 50
+!TFTP Server: 192.168.3.1
+
+!Configurando os desktops
+!Config
+!display-name:desktop-05
+!dhcp
+!display-name:desktop-06
+!dhcp
+!display-name:desktop-07
+!dhcp
+!display-name:desktop-08
+!dhcp
+
