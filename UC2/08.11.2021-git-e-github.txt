@@ -1,0 +1,44 @@
+#Autor: Fagner Geraldes Braga
+#Data de criação: 08/11/2021
+#Data de atualização: 16/11/2021
+#Versão: 0.02
+******************************************************************************************
+Configurações do VSCode
+Atualizar para o idioma Português
+Escolher Tema Escuro
+******************************************************************************************
+Instalar as Extensões
+Brazilian Portuguese-Code Spell Checker
+bats
+bash beautify
+shell-format
+shellcheck
+Cisco IOS Systax
+Cisco IOS-XR Systax
+Cisco Config Highlight
+Pylance
+Python
+******************************************************************************************
+Configuração do Brazilian Portuguese-Code Spell Checker
+Brazilian Portuguese - Code Spell Checker (Corretor Ortográfico de Código)
+F1
+Show Spell Checker Configuration Info
+Language
+	English (en_us)
+	Portuguese (pt_br)
+	Portuguese - Brazil (pt-br)
+File Types and Programming Languages
+	shellscript, bat, powershell
+
+Gerenciar
+Configurações
+Code Spell Checker
+	C Spell: Enabled Language Ids: shellscript
+	C Spell: Language: en,pt,pt-BR
+	C Spell: Max Duplicate Problems: 5000
+	C Spell: Max Number Of Problems: 100000
+Editor
+	Editor: Tab Size: 4
+	Editor: Detect Indentation: False
+	Editor: Insert Spaces: False
+******************************************************************************************
