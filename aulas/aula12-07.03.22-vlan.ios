@@ -1,0 +1,107 @@
+!Autor: Fagner Geraldes Braga  
+!Data de criação: 07/03/2022  
+!Data de atualização: 09/03/2022  
+!Versão: 0.02
+
+!Criando VLANs
+enable
+ conf t
+   !Cria a VLAN
+   vlan 10
+   !Atribui nome a VLAN
+   name ADM
+   !Cria a VLAN   
+   vlan 20
+   !Atribui nome a VLAN
+   name EDU
+   exit
+  !Atribui VLAN 10 nas portas de 1 até 12 do switch
+  interface range fastethernet 0/1-12
+    switchport access vlan 10
+    exit
+  !Atribui VLAN 20 nas portas de 13 até 24 do switch
+  interface range fastethernet 0/13-24
+    switchport access vlan 20
+    end
+ wr
+ show vlan brief
+
+ !Criando VLANs
+enable
+ conf t
+   !Cria a VLAN
+   vlan 30
+   !Atribui nome a VLAN
+   name FABRICA
+   !Cria a VLAN   
+   vlan 40
+   !Atribui nome a VLAN
+   name LOJA
+   vlan 50
+   !Atribui nome a VLAN
+   name ADM
+   exit
+  !Atribui VLAN 10 nas portas de 1 até 10 do switch
+  interface range fastethernet 0/1-10
+    switchport access vlan 30
+    exit
+  !Atribui VLAN 20 nas portas de 11 até 18 do switch
+  interface range fastethernet 0/11-18
+    switchport access vlan 40
+    exit
+interface range fastethernet 0/19-24
+    switchport access vlan 50
+    exit
+interface range GigabitEthernet 0/1-2
+    switchport access vlan 50
+    end
+ wr
+ show vlan brief
+
+enable
+Switch#configure  terminal
+hostname SW1
+!Cria a VLAN
+vlan 10
+!Atribui nome a VLAN
+name VERDE
+!Cria a VLAN
+vlan 20
+!Atribui nome a VLAN
+name VERMELHO
+exit
+!Atribui VLAN 10 nas portas de 1 até 12 do switch
+interface range fastEthernet 0/1-12
+switchport access vlan 10
+!Atribui VLAN 10 nas portas de 13 até 24 do switch
+interface range fastEthernet 0/13-24
+switchport access vlan 20
+exit
+!Cria o Trunk entre as interfaces Giga que conectam os switches
+interface gigabitEthernet 0/1
+switchport mode trunk 
+end
+show vlan brief
+wr
+
+enable
+Switch#configure  terminal
+hostname SW1
+!Cria a VLAN
+vlan 10
+!Atribui nome a VLAN
+name VERDE
+!Cria a VLAN
+vlan 20
+!Atribui nome a VLAN
+name VERMELHO
+exit
+!Atribui VLAN 10 nas portas de 1 até 12 do switch
+interface range fastEthernet 0/1-12
+switchport access vlan 10
+!Atribui VLAN 10 nas portas de 13 até 24 do switch
+interface range fastEthernet 0/13-24
+switchport access vlan 20
+end
+show vlan brief
+wr
