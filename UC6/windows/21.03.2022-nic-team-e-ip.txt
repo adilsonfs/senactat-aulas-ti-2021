@@ -9,10 +9,10 @@ Criar Usuário
 Usuário: administrator
 Senha: 123@senac
 ******************************************************************************************
-Renomear computador: SRVFAGNER
+Renomear computador: SRVADILSON
 ******************************************************************************************
 Criação de NIC Team
-Nome: NICFAGNER
+Nome: NICADILSON
 Teaming mode: Switch Independent
 Load Balancing mode: Address Hash
 Standby adapter: None (All adapters Active)
