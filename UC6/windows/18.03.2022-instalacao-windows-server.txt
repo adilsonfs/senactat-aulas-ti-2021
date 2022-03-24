@@ -1,4 +1,4 @@
-#Autor: Fagner Geraldes Braga
+#Autor: Adilson Felipe dos Santos
 #Data de criação: 18/03/2022
 #Data de atualização: 18/03/2022
 #Versão: 0.01
