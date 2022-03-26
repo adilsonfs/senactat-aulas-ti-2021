@@ -1,0 +1,146 @@
+Autor: Robson Vaamonde
+Procedimentos em TI: http://procedimentosemti.com.br
+Bora para Prática: http://boraparapratica.com.br
+Robson Vaamonde: http://vaamonde.com.br
+Facebook Procedimentos em TI: https://www.facebook.com/ProcedimentosEmTi
+Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica
+Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
+YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
+LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
+Data de criação: 23/01/2021
+Data de atualização: 24/03/2022
+Versão: 0.09
+Testado e homologado no Firewall NG UTM Netgate pfSense 2.4.x, 2.5.x e 2.6.x
+
+Atualização da versão do pfSense 2.6.0: https://docs.netgate.com/pfsense/en/latest/releases/22-01_2-6-0.html
+Versão anterior do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/releases/2-5-2.html
+Versão anterior do pfSense 2.5.1: https://docs.netgate.com/pfsense/en/latest/releases/21-02-2_2-5-1.html
+Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releases/2-5-0.html
+
+Migração para o pfSense Plus+ 22.01: https://docs.netgate.com/pfsense/en/latest/install/migrate-to-plus.html
+
+Gerenciamento de autoridade de certificação do pfSense: https://docs.netgate.com/pfsense/en/latest/certificates/ca.html
+CA do pfSense: https://docs.netgate.com/pfsense/en/latest/certificates/index.html
+Configurando o suporte ao HTTPS do pfSense: https://docs.netgate.com/pfsense/en/latest/config/advanced-admin.html
+
+Configuração do CA (Certificate Authority) e do Certificado SSL do pfSense
+System
+	Cert. Manager
+		CAs
+			+ADD
+				Create / Edit CA
+					Descriptive name: SEU_DOMINIO
+					Method: Create an internal Certificate Authority
+					Trust Store: (default)
+					Randomize Serial: (default)
+				Internal Certificate Authority
+					Key type: RSA
+					Key length (bits): 2048
+					Digest Algorithm: sha256
+					Lifetime (days): 3650
+					Common Name: SEU_DOMINIO-ca
+					Country Code: BR
+					Sate or Province: Sao Paulo
+					City: Sao Paulo
+					Organization: Sua Empresa
+					Organizational Unit: Matriz Sua Empresa
+			Save
+
+Exportando a CA do SEU_DOMINIO do pfSense
+System
+	Cert. Manager
+		CAs
+		SEU_DOMINIO
+			Export CA
+				Salvar Arquivo: SEU_DOMINIO.crt
+
+Configuração do Certificado SSL de Serviços do pfSense
+System
+	Cert. Manager
+		Certificates
+			+Add/Sign
+				Add/Sign a New Certificate
+					Method: Create an internal Certificate
+					Descriptive name: Certificado do pfSense
+				Internal Certificate 
+					Certificate authority: SEU_DOMINIO
+					Key type: RSA
+					Key length: 2048
+					Digest Algorithm: sha256
+					Lifetime (days): 3650
+					Common Name: firewall.SEU_DOMINIO.intra 
+					Country Code: BR
+					State or Province: Sao Paulo
+					City: Sao Paulo
+					Organization: Sua Empresa
+					Organization Unit: Matriz de Sua Empresa
+				Certificate Attributes
+					Certificate Type: Server Certificate
+					Alternative Names:
+						IP Address: 172.16.??.254 +Add
+						FQDN or Hostname: firewall +Add
+						FQDN or Hostname: firewall.SEU_DOMINIO.intra
+			Save
+
+Configurando o Suporte ao HTTPS do pfSense
+System
+	Advanced
+		webConfigurator
+			Protocol: HTTPS
+			SSL/TLS Certificate: Certificado do pfSense
+		Save
+
+Instalação do CA (Certificate Authority) no Firefox (Linux ou Windows)
+Firefox
+	Menu de Aplicativo
+		Preferências
+			Pesquisar em Preferências
+				Certificados
+					Ver Certificados...
+						Autoridades
+							Importar: SEU_DOMINIO.crt <Abrir>
+								Confiar nesta CA para identificar sites (yes)
+								Confiar nesta CA para identificar usuários de e-mail (yes)
+							<Ver>
+							<OK>
+
+Instalação do CA (Certificate Authority) no Google Chrome (Linux)
+Google Chrome
+	Digite a URL: chrome://settings/certificates
+		Autoridade
+			Importar
+				SEU_DOMINIO.crt <Abrir>
+					Confiar neste certificado para identificar sites (yes)
+					Confiar neste certificado para identificar usuários de e-mail (yes)
+					Confiar neste certificado para identificar fabricantes de software (yes)
+				<OK>
+	Digite a URL: chrome://restart
+
+Instalação do CA (Certificate Authority) no Windows
+SEU_DOMINIO.crt (clicar duas vezes em cima do certificado)
+	Abrir
+		Certificado
+			Geral
+				Instalar Certificado...
+					Assistente para Importação de Certificados
+						Máquina Local <Avançar>
+						Deseja permitir que este aplicativo faça alterações no seu dispositivo? <sim>
+						Colocar todos os certificados no repositório a seguir
+							Repositório de Certificados <Procurar>
+								Autoridades de Certificação Raiz Confiáveis <OK>
+						<Avançar>
+						<Concluir>
+						<OK>
+Pesquisa do Windows
+	Gerenciar Certificados de Computador <Sim>
+		Autoridades de Certificação Raiz Confiáveis
+			Certificados
+				SEU_DOMINIO-ca
+
+Instalação do CA (Certificate Authority) no Linux
+SEU_DOMINIO.crt
+		Abrir como Root 
+			Copia: SEU_DOMINIO.crt
+			Colar: /usr/local/share/ca-certificates
+		Terminal
+			sudo update-ca-certificates

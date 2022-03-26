@@ -1,0 +1,193 @@
+Autor: Robson Vaamonde
+Procedimentos em TI: http://procedimentosemti.com.br
+Bora para Prática: http://boraparapratica.com.br
+Robson Vaamonde: http://vaamonde.com.br
+Facebook Procedimentos em TI: https://www.facebook.com/ProcedimentosEmTi
+Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica
+Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
+YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
+LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
+Data de criação: 25/08/2021
+Data de atualização: 24/03/2022
+Versão: 0.06
+Testado e homologado no Firewall NG UTM Netgate pfSense 2.4.x, 2.5.x e 2.6.x
+
+Atualização da versão do pfSense 2.6.0: https://docs.netgate.com/pfsense/en/latest/releases/22-01_2-6-0.html
+Versão anterior do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/releases/2-5-2.html
+Versão anterior do pfSense 2.5.1: https://docs.netgate.com/pfsense/en/latest/releases/21-02-2_2-5-1.html
+Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releases/2-5-0.html
+
+Migração para o pfSense Plus+ 22.01: https://docs.netgate.com/pfsense/en/latest/install/migrate-to-plus.html
+
+Gerenciamento e autenticação de usuários: https://docs.netgate.com/pfsense/en/latest/usermanager/index.html
+Gerenciador de pacotes: https://docs.netgate.com/pfsense/en/latest/packages/manager.html
+Pacote Sudo: https://docs.netgate.com/pfsense/en/latest/packages/sudo.html
+Conexão via Console do pfSense: https://docs.netgate.com/pfsense/en/latest/hardware/connect-to-console.html
+Conexão via SSH do pfSense: https://docs.netgate.com/pfsense/en/latest/recipes/ssh-access.html#enable-ssh-via-gui
+
+Instalação do pacote sudo (su "do")
+System
+	Packages Manager
+		Available Packages
+			Search
+				Search term: sudo <Search>
+			+Install
+		 Confirmation Required to install package pfSense-pkg-sudo. 
+		 	<Confirm>
+
+System
+	sudo
+
+Criação de grupos no pfSense
+System
+	User Manager
+		Groups
+			+ADD
+				Group Properties
+					Group name: SEU_DOMINIO
+					Scope: Local
+					Description: Grupo de Usuários Admin do pfSense
+					Group membership: Default
+			Save
+			
+			+ADD
+				Group Properties
+					Group name: openvpn
+					Scope: Local
+					Description: Grupo de Usuários do OpenVPN do pfSense
+					Group membership: Default
+			Save
+
+Criação dos usuários no pfSense
+System
+	User Manager
+		Users
+			+ADD
+				User Properties
+					Defined USER 
+					Disable: OFF
+					Username: SEU_USUARIO
+					Password: 123@senac
+					Confirm Password: 123@senac
+					Full name: Seu Usuário
+					Expiration date: OFF
+					Custom Settings: OFF
+					Group membership: Member of: SEU_DOMINIO
+					Certificate: OFF
+				Keys
+					Authorized SSH Keys: Default
+					IPsec Pre-Shared Key: Default
+			Save
+			
+			+ADD
+				User Properties
+					Defined USER 
+					Disable: OFF
+					Username: openvpn
+					Password: 123@senac
+					Confirm Password: 123@senac
+					Full name: Usuário OpenVPN
+					Expiration date: OFF
+					Custom Settings: OFF
+					Group membership: Member of: openvpn
+					Certificate: OFF
+				Keys
+					Authorized SSH Keys: Default
+					IPsec Pre-Shared Key: Default
+			Save
+
+Configuração dos privilégios e atribuídos no pfSense
+System
+	User Manager
+		Groups
+			SEU_DOMINIO
+				Edit Group
+					Assigned Privileges
+						+ADD
+							Group Privileges
+								Assigned privileges
+									WebCfg - All pages
+							Save
+				Save
+			
+			OpenVPN
+				Edit Group
+					Assigned Privileges
+						+ADD
+							Group Privileges
+								Assigned privileges
+									 Filter: OpenVPN <Filter>
+									 WebCfg - OpenVPN: Client Specific Override
+									 WebCfg - OpenVPN: Client Specific Override Edit Advanced
+									 WebCfg - OpenVPN: Clients
+									 WebCfg - OpenVPN: Clients Edit Advanced
+									 WebCfg - Status: OpenVPN
+									 WebCfg - Status: System Logs: OpenVPN
+							Save
+				Save
+
+System
+	User Manager
+		Users
+			SEU_USUARIO
+				Edit User
+					Effective Privileges
+						+ADD
+							User - System: Copy files (scp)
+							User - System: Copy files to home directory (chrooted scp)
+							User - System: Shell account access
+						Save
+				Save
+
+#Configurando os Grupos e Usuários do pfSense com direito ao SUDO
+System
+	sudo
+		User Privileges
+			+ADD
+				Group: SEU_DOMINIO	- User: root - Command List: ALL
+				User.: SEU_USUARIO	- User: root - Command List: ALL
+		Save
+
+Desabilitando o usuário admin padrão do pfSense
+System
+	User Manager
+		Users
+			admin: 
+				Edit User
+					User Properties
+						Disabled: ON
+				Save
+
+Autenticando o usuário: SEU_USUARIO no Console do pfSense
+Login: SEU_USUARIO
+Password: 123@senac
+	Executando o script do console: sudo /etc/./rc.initial
+		Password: 123@senac
+	Criando o script de inicialização: echo "sudo /etc/./rc.initial" > .login
+
+Gerando a Chave Pública do SSH para a autenticação do usuário: SEU_USUARIO no pfSense
+Terminal
+	ssh-keygen
+	Enter file in which to save the key (/home/SEU_USUARIO/.ssh/id_rsa): /home/Administrator/.ssh/pfSense-admin <Enter>
+	Enter passphrase (empty for no passphrase): <Enter>
+	Enter same passphrase again: <Enter>
+		cd /home/SEU_USUARIO/.ssh/
+		ls -lh
+		cat pfSense-admin.pub
+
+Configuração da Chave Pública do SSH no usuário: SEU_USUARIO do pfSense
+System
+	User Manager
+		Users
+			SEU_USUARIO
+				Edit Users
+					Keys
+						Authorized SSH Keys: (copiar e colocar o conteúdo da chave pública)
+				Save
+
+Acessando remotamente o pfSense utilizando o Protocolo SSH
+Terminal
+	ssh seuusuario@172.16.??.254
+	Are you sure want to continue connecting? yes <Enter>
+	Password: 123@senac
+	Password: 123@Senac

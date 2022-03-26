@@ -1,0 +1,145 @@
+Autor: Robson Vaamonde
+Procedimentos em TI: http://procedimentosemti.com.br
+Bora para Prática: http://boraparapratica.com.br
+Robson Vaamonde: http://vaamonde.com.br
+Facebook Procedimentos em TI: https://www.facebook.com/ProcedimentosEmTi
+Facebook Bora para Prática: https://www.facebook.com/BoraParaPratica
+Instagram Procedimentos em TI: https://www.instagram.com/procedimentoem
+YouTUBE Bora Para Prática: https://www.youtube.com/boraparapratica
+LinkedIn Robson Vaamonde: https://www.linkedin.com/in/robson-vaamonde-0b029028/
+Data de criação: 25/08/2021
+Data de atualização: 24/03/2022
+Versão: 0.06
+Testado e homologado no Firewall NG UTM Netgate pfSense 2.4.x, 2.5.x e 2.6.x
+
+Atualização da versão do pfSense 2.6.0: https://docs.netgate.com/pfsense/en/latest/releases/22-01_2-6-0.html
+Versão anterior do pfSense 2.5.2: https://docs.netgate.com/pfsense/en/latest/releases/2-5-2.html
+Versão anterior do pfSense 2.5.1: https://docs.netgate.com/pfsense/en/latest/releases/21-02-2_2-5-1.html
+Versão base do pfSense 2.5.0: https://docs.netgate.com/pfsense/en/latest/releases/2-5-0.html
+
+Migração para o pfSense Plus+ 22.01: https://docs.netgate.com/pfsense/en/latest/install/migrate-to-plus.html
+
+Introdução à regras de firewall: https://docs.netgate.com/pfsense/en/latest/firewall/index.html
+Configuração das Regras de Firewall: https://docs.netgate.com/pfsense/en/latest/firewall/configure.html
+
+Permitindo acesso remoto ao GUI: https://docs.netgate.com/pfsense/en/latest/recipes/remote-firewall-administration.html
+Evitando que o tráfego RFC1918 saia de uma interface WAN: https://docs.netgate.com/pfsense/en/latest/recipes/rfc1918-egress.html
+Conexão via Console do pfSense: https://docs.netgate.com/pfsense/en/latest/hardware/connect-to-console.html
+Conexão via SSH do pfSense: https://docs.netgate.com/pfsense/en/latest/recipes/ssh-access.html#enable-ssh-via-gui
+Conceder aos usuários acesso ao SSH: https://docs.netgate.com/pfsense/en/latest/recipes/ssh-access.html#ssh-keys
+Configurando o suporte ao HTTPS do pfSense: https://docs.netgate.com/pfsense/en/latest/config/advanced-admin.html
+
+Alterando a Porta do HTTPS do pfSense
+System
+	Advanced
+		webConfigurator
+			Protocol: HTTPS
+			Port: 10443
+
+Alterando a Porta do Serviço do SSH (Secure Shell) do pfSense
+System
+	Advanced
+		Secure Shell
+			SSH port: 10222
+	Save
+
+Configurando a liberação do Protocolo ICMP na Interface WAN do pfSense
+Firewall
+	Rules
+		WAN
+			ADD
+				Edit Firewall Rule
+					Action: Pass
+					Disabled: OFF
+					Interface: WAN
+					Address Family: IPv4
+					Protocol: ICMP
+					ICMP Subtypes:
+						Echo Reply
+						Echo Request
+				Source
+					Source: any
+				Destination
+					Destination: WAN Address
+				Extra Options
+					Log: ON 
+					Description: Liberação do Protocolo ICMP na Interface WAN
+			Save
+		Apply Changes
+
+Configurando a liberação de acesso remoto ao WebGui do pfSense utilizando o Protocolo HTTPS
+Firewall
+	Rules
+		WAN
+			ADD
+				Edit Firewall Rule
+					Action: Pass
+					Disabled: OFF
+					Interface: WAN
+					Address Family: IPv4
+					Protocol: TCP
+				Source
+					Source: any
+					Advanced: Default
+				Destination
+					Destination: WAN Address
+					Destination Port Range: From: 10443 To: 10443
+				Extra Options
+					Log: ON 
+					Description: Liberação do acesso remoto ao WebGui do pfSense
+			Save
+		Apply Changes
+
+Configurando a liberação de acesso remoto ao Console do pfSense utilizando o Protocolo SSH
+Firewall
+	Rules
+		WAN
+			ADD
+				Edit Firewall Rule
+					Action: Pass
+					Disabled: OFF
+					Interface: WAN
+					Address Family: IPv4
+					Protocol: TCP
+				Source
+					Source: any
+					Advanced: Default
+				Destination
+					Destination: WAN Address
+					Destination Port Range: From: 10222 To: 10222
+				Extra Options
+					Log: ON 
+					Description: Liberação do acesso remoto ao Console do pfSense
+			Save
+		Apply Changes
+
+		+ Separator
+			Liberação do acesso remoto do WebGui e Console do pfSense
+		Save
+
+Gerando a Chave Pública do SSH para a autenticação do usuário SEU_USUÁRIO no pfSense
+
+Criação do usuário de acesso remoto no pfSense
+System
+	User Manager
+		Users
+			+ADD
+				User Properties
+					Defined USER 
+					Disable: OFF
+					Username: SEU_USUÁRIO
+					Password: 123@senac
+					Confirm Password: 123@senac
+					Full name: Robson Vaamonde
+					Expiration date: OFF
+					Custom Settings: OFF
+					Group membership: Member of: SEU_DOMINIO
+					Certificate: OFF
+				Keys
+					Authorized SSH Keys: (copiar e colocar a chave RSA do SSH)
+					IPsec Pre-Shared Key: Default
+			Save
+
+Testando o acesso remoto ao pfSense
+	Navegador: https://Endereço_IPv4_WAN:10443
+	SSH: ssh -p 10222 SEU_USUÁRIO@Endereço_IPv4_WAN (10.26.x.x)
