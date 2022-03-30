@@ -18,10 +18,10 @@ Configuração de Rede Sem-Fio
 Endereçamento IPv4
 Compartilhamento de Pastas e Impressoras
 Criação de Usuário e Grupos
-Clonagem de Sistemas Operacionais
 ---------------------------------------------------------------------------------------------------
-!Clonezilla!
+!Clonagem de Sistemas Operacionais!
 
+Clonezilla
 AOMEI
 Macrium
 UC-3
